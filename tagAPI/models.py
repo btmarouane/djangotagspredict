@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.postgres.fields import ArrayField
 
 # Create your models here.
 class Prediction(models.Model):
@@ -7,7 +6,7 @@ class Prediction(models.Model):
     title = models.TextField(max_length=100,default="")
     body = models.TextField(max_length=400,default="")
     predicted = models.BooleanField(default=False)
-    prediction = models.CharField(max_length=100, default='[]')
+    prediction = models.CharField(max_length=100, default="[]")
 
     def __str__(self):
         return self.token
