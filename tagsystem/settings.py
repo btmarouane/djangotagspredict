@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import django_heroku
+#import django_heroku
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -23,9 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = ')$h&#u(0bl03uai2i_d%=+!lhsnw2qdbu##j#uvx&4x2pl35t7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['https://tagspredict.herokuapp.com/', '.herokuapp.com']
+#ALLOWED_HOSTS = ['https://tagspredict.herokuapp.com/', '.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
@@ -150,13 +151,17 @@ Q_CLUSTER = {
     'cpu_affinity': 1,
     'label': 'Django Q',
     'redis': {
-        'host': 'ec2-3-215-28-47.compute-1.amazonaws.com',
-        'port': 15699,
-        'password': 'p4b627d1b095ae9645c0ce2fa74ea65a89645827ef17ecfa15e7183ea7570cf07',
+        'host': '127.0.0.1',
+        'port': 6379,
         'db': 0,
+        #'host': 'ec2-3-215-28-47.compute-1.amazonaws.com',
+
+        #'port': 15699,
+        #'password': 'p4b627d1b095ae9645c0ce2fa74ea65a89645827ef17ecfa15e7183ea7570cf07',
+        #'db': 0,
     }
 }
 
 STATIC_URL = '/static/'
 # Activate Django-Heroku.
-django_heroku.settings(locals())
+#django_heroku.settings(locals())
